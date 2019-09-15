@@ -8,6 +8,6 @@ exports.transform = async function(ticket) {
 	return {events, ...ticket};
 };
 
-exports.create = async function({ Ticket }) {
-	return await Ticket.create({title: 'asd'});
+exports.create = async function({ Ticket }, ticket) {
+	return Ticket.create(ticket);
 };
