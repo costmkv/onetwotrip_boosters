@@ -12,23 +12,23 @@ const getEvents = async (config, { daysCount = 3, departure }) => {
 	let promises = [];
 
 	_.times(daysCount, (index) => {
-		let paramsRequest = { ...baseParams };
+		let requestParams = { ...baseParams };
 
 		if (index === 0) {
-			paramsRequest.actual_seance = moment(departure).unix();
+			requestParams.actual_since = moment(departure).unix();
 		} else {
-			paramsRequest.actual_seance = moment(departure)
+			requestParams.actual_since = moment(departure)
 				.add(index, 'day')
 				.startOf('day')
 				.unix();
 		}
 
-		paramsRequest.actual_until = moment(departure)
+		requestParams.actual_until = moment(departure)
 			.add(index, 'days')
 			.endOf('day')
 			.unix();
 
-		promises.push(kudagoRequest.getEvents(config.kudago, paramsRequest));
+		promises.push(kudagoRequest.getEvents(config.kudago, requestParams));
 	});
 
 	return Promise.all(promises);
