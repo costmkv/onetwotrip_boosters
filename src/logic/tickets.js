@@ -1,5 +1,3 @@
-'use strict';
-
 const eventsLogic = require('./events');
 
 exports.transform = async function(ticket) {
