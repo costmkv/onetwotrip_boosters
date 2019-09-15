@@ -7,5 +7,9 @@ module.exports = {
 			reconnectTries: 60,
 			reconnectInterval: 1000
 		}
+	},
+	kudago: {
+		host: 'kudago.com',
+		basePath: '/public-api/v1.4'
 	}
 };

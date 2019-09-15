@@ -1,11 +1,3 @@
-const eventsLogic = require('./events');
+const createTicket = async ({ Ticket }, ticket) => Ticket.create(ticket);
 
-exports.transform = async function(ticket) {
-	const events = await eventsLogic.get();
-
-	return {events, ...ticket};
-};
-
-exports.create = async function({ Ticket }, ticket) {
-	return Ticket.create(ticket);
-};
+module.exports = { createTicket };
