@@ -9,7 +9,7 @@ services:
 
   web:
     build: .
-    depends_on:
+    links:
       - mongo
     ports:
-      - "3000:3000"
+      - "80:80"
